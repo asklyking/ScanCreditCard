@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,74 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ScanCreditCard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqc-ZF-fi1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZu-jt-5VB">
+                                        <rect key="frame" x="8" y="188.5" width="304" height="191"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="iZu-jt-5VB" secondAttribute="height" multiplier="8560:5389" id="U5s-eu-yOq"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbc-Qd-z6q">
+                                        <rect key="frame" x="135" y="429.5" width="50" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="DDT-K5-etq"/>
+                                            <constraint firstAttribute="width" constant="50" id="NYN-jA-HZl"/>
+                                        </constraints>
+                                        <state key="normal" image="camera"/>
+                                        <connections>
+                                            <action selector="clickedBtnCapture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="txO-V2-Tof"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Put your card fit to frame and press Capture button" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Qz-mV-nvq">
+                                        <rect key="frame" x="22.5" y="97.5" width="275" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Zbc-Qd-z6q" firstAttribute="centerX" secondItem="mqc-ZF-fi1" secondAttribute="centerX" id="EY6-QI-4Hd"/>
+                                    <constraint firstAttribute="trailing" secondItem="iZu-jt-5VB" secondAttribute="trailing" constant="8" id="Gpg-2b-Xku"/>
+                                    <constraint firstItem="9Qz-mV-nvq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mqc-ZF-fi1" secondAttribute="leading" id="IP2-eO-toK"/>
+                                    <constraint firstItem="9Qz-mV-nvq" firstAttribute="centerX" secondItem="mqc-ZF-fi1" secondAttribute="centerX" id="Nr1-tS-HTq"/>
+                                    <constraint firstItem="iZu-jt-5VB" firstAttribute="leading" secondItem="mqc-ZF-fi1" secondAttribute="leading" constant="8" id="aJl-bE-9RO"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Qz-mV-nvq" secondAttribute="trailing" id="fP0-jH-HqI"/>
+                                    <constraint firstItem="iZu-jt-5VB" firstAttribute="top" secondItem="9Qz-mV-nvq" secondAttribute="bottom" constant="50" id="lej-Ow-uWm"/>
+                                    <constraint firstItem="iZu-jt-5VB" firstAttribute="centerY" secondItem="mqc-ZF-fi1" secondAttribute="centerY" id="vw8-Y8-PD0"/>
+                                    <constraint firstItem="Zbc-Qd-z6q" firstAttribute="top" secondItem="iZu-jt-5VB" secondAttribute="bottom" constant="50" id="yZ0-1H-jGi"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mqc-ZF-fi1" secondAttribute="bottom" id="S2j-77-V7S"/>
+                            <constraint firstItem="mqc-ZF-fi1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-20" id="euE-xG-4KE"/>
+                            <constraint firstItem="mqc-ZF-fi1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oqT-eF-xHR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mqc-ZF-fi1" secondAttribute="trailing" id="yMa-mm-id4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="btnCapture" destination="Zbc-Qd-z6q" id="LHP-Ar-Pl2"/>
+                        <outlet property="previewView" destination="iZu-jt-5VB" id="j6v-xi-PNg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="192" height="192"/>
+    </resources>
 </document>
