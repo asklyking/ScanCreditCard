@@ -13,6 +13,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 
     @IBOutlet weak var btnCapture: UIButton!
     @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak var frameCard: UIView!
+    @IBOutlet weak var lblGuide: UILabel!
     
     let captureSession = AVCaptureSession()
     var previewLayer:CALayer!
@@ -27,6 +29,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         btnCapture.layer.cornerRadius = btnCapture.frame.width / 2.0
         btnCapture.layer.borderWidth = 2.0
         btnCapture.layer.borderColor = UIColor.red.cgColor
+        frameCard.layer.borderColor = UIColor.red.cgColor
+        frameCard.layer.borderWidth = 2.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,10 +42,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     func prepareCamera() {
         captureSession.sessionPreset = AVCaptureSession.Preset.photo
         
-        if let availableDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back).devices.first {
-            captureDevice = availableDevice
-            beginSession()
-        }
+        captureDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back).devices.first
+        beginSession()
         
     }
     
@@ -61,6 +63,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         //self.previewLayer.frame = self.previewView.layer.frame
         DispatchQueue.main.async {
             self.previewLayer.frame = self.previewView.bounds
+            self.btnCapture.layer.zPosition = self.previewLayer.zPosition + 1
+            self.frameCard.layer.zPosition = self.previewLayer.zPosition + 1
+            self.lblGuide.layer.zPosition = self.previewLayer.zPosition + 1
         }
         captureSession.startRunning()
         
@@ -80,17 +85,25 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
     }
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
-        
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         if takePhoto {
             takePhoto = false
             
             if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
                 // process captured image here
+                let photoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+                
+                let croppedImage = image.crop(rect: self.frameCard.frame)
+                photoVC.takenPhoto = croppedImage
+                
+                DispatchQueue.main.async {
+                    self.present(photoVC, animated: true, completion: {
+                        self.stopCaptureSession()
+                    })
+                }
             }
         }
     }
-    
     
     func getImageFromSampleBuffer (buffer:CMSampleBuffer) -> UIImage? {
         if let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) {

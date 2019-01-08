@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CC2114E21E44BCC0005D601 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC2114D21E44BCC0005D601 /* ResultViewController.swift */; };
+		0CC2115021E47FD00005D601 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC2114F21E47FD00005D601 /* Extensions.swift */; };
+		0CC2115321E4841F0005D601 /* tuan_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CC2115221E4841F0005D601 /* tuan_card.png */; };
 		0CCB9FF921E2E67C0014B151 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB9FF821E2E67C0014B151 /* AppDelegate.swift */; };
 		0CCB9FFB21E2E67C0014B151 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB9FFA21E2E67C0014B151 /* ViewController.swift */; };
 		0CCB9FFE21E2E67D0014B151 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB9FFC21E2E67D0014B151 /* Main.storyboard */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CC2114D21E44BCC0005D601 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		0CC2114F21E47FD00005D601 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0CC2115221E4841F0005D601 /* tuan_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tuan_card.png; sourceTree = "<group>"; };
 		0CCB9FF521E2E67C0014B151 /* ScanCreditCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanCreditCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCB9FF821E2E67C0014B151 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CCB9FFA21E2E67C0014B151 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CC2115121E4841F0005D601 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0CC2115221E4841F0005D601 /* tuan_card.png */,
+			);
+			path = Data;
+			sourceTree = SOURCE_ROOT;
+		};
 		0CCB9FEC21E2E67C0014B151 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +79,7 @@
 		0CCB9FF721E2E67C0014B151 /* ScanCreditCard */ = {
 			isa = PBXGroup;
 			children = (
+				0CC2115121E4841F0005D601 /* Data */,
 				0CCB9FF821E2E67C0014B151 /* AppDelegate.swift */,
 				0CCB9FFA21E2E67C0014B151 /* ViewController.swift */,
 				0CCB9FFC21E2E67D0014B151 /* Main.storyboard */,
@@ -74,6 +89,8 @@
 				0CCBA00F21E3006A0014B151 /* OpenCVWrapper.h */,
 				0CCBA01021E3006A0014B151 /* OpenCVWrapper.mm */,
 				0CCBA00E21E300690014B151 /* ScanCreditCard-Bridging-Header.h */,
+				0CC2114D21E44BCC0005D601 /* ResultViewController.swift */,
+				0CC2114F21E47FD00005D601 /* Extensions.swift */,
 			);
 			path = ScanCreditCard;
 			sourceTree = "<group>";
@@ -156,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CCBA00321E2E67E0014B151 /* LaunchScreen.storyboard in Resources */,
+				0CC2115321E4841F0005D601 /* tuan_card.png in Resources */,
 				0CCBA00021E2E67E0014B151 /* Assets.xcassets in Resources */,
 				0CCB9FFE21E2E67D0014B151 /* Main.storyboard in Resources */,
 			);
@@ -193,9 +211,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CC2115021E47FD00005D601 /* Extensions.swift in Sources */,
 				0CCB9FFB21E2E67C0014B151 /* ViewController.swift in Sources */,
 				0CCB9FF921E2E67C0014B151 /* AppDelegate.swift in Sources */,
 				0CCBA01121E3006A0014B151 /* OpenCVWrapper.mm in Sources */,
+				0CC2114E21E44BCC0005D601 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
